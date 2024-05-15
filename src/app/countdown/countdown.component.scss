@@ -1,0 +1,24 @@
+.countdown-form {
+  display: flex;
+  @media (orientation: landscape) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5vw;
+  }
+  @media (orientation: portrait) {
+    flex-direction: column;
+  }
+  margin: 10vh 0;
+}
+
+.countdown-form-field {
+  width: 100%;
+}
+
+.title-text {
+  text-align: center;
+}
+
+.time-text {
+  text-align: center;
+}
