@@ -1,16 +1,16 @@
 <div class="text-container">
-  <h1 class="title-text">Time To Midsummers eve</h1>
+  <h1 class="title-text">Time to {{ titleText }} </h1>
 </div>
 <div class="text-container">
-  <h1 class="time-text">320 days, 20h, 30m, 10s</h1>
+  <h1 class="time-text">{{ timerText }}</h1>
 </div>
 <div class="countdown-form">
   <mat-form-field class="countdown-form-field" appearance="outline">
     <mat-label>Title</mat-label>
-    <input matInput type="text" >
+    <input matInput type="text" [(ngModel)]="titleText" >
   </mat-form-field>
   <mat-form-field class="countdown-form-field" appearance="outline">
     <mat-label>Date</mat-label>
-    <input matInput type="date" >
+    <input matInput type="date" (change)="onDateChange($event)" >
   </mat-form-field>
 </div>
