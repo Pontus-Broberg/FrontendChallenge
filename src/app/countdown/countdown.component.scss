@@ -1,24 +1,47 @@
 .countdown-form {
   display: flex;
+
   @media (orientation: landscape) {
     flex-direction: row;
-    justify-content: space-between;
     gap: 5vw;
+    justify-content: space-between;
+    margin-top: 20vh;
   }
+
   @media (orientation: portrait) {
     flex-direction: column;
+    gap: 5vw;
+    margin-top: 10vh;
   }
-  margin: 10vh 0;
 }
 
 .countdown-form-field {
   width: 100%;
 }
 
-.title-text {
-  text-align: center;
+.text-container {
+  overflow: hidden;
 }
 
 .time-text {
+  font-size: 50px;
+  font-weight: 400;
+  margin: 0;
   text-align: center;
+}
+
+.title-text {
+  color: #72035D;
+  font-size: 60px;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  line-height: 70px;
+}
+
+input {
+  height: 20px !important;
 }

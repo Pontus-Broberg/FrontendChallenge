@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 @Component({
   selector: 'app-countdown',
   standalone: true,
-  imports: [MatInputModule, MatFormFieldModule],
+  imports: [MatFormFieldModule, MatInputModule],
   templateUrl: './countdown.component.html',
   styleUrl: './countdown.component.scss',
 })
