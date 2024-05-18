@@ -1,7 +1,8 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { Subscription, interval } from 'rxjs'
+import { LocalStorageService } from '../local-storage.service'
 
 @Component({
   selector: 'app-countdown',
@@ -10,14 +11,16 @@ import { Subscription, interval } from 'rxjs'
   templateUrl: './countdown.component.html',
   styleUrl: './countdown.component.scss',
 })
-export class CountdownComponent {
-  titleText: string = ''
-  timerText: string = ''
+export class CountdownComponent implements OnInit {
+  titleText: string = 'Welcome to the countdown app!'
+  timerText: string = 'Please select a time to start the countdown.'
   selectedDate: Date | null = null
-  currentDate: Date = new Date()
   private timerSubscription: Subscription | undefined
 
+  constructor(private localStorageService: LocalStorageService) {}
+
   ngOnInit() {
+    this.titleText = this.localStorageService.getTitle() || ''
     this.startCountdownTimer()
   }
 
@@ -37,9 +40,10 @@ export class CountdownComponent {
     }
   }
 
-  updateCountdown(event?: any) {
+  updateCountdown() {
     if (this.selectedDate) {
-      const timeDifference = this.selectedDate.getTime() - this.currentDate.getTime()
+      const currentDate = new Date()
+      const timeDifference = this.selectedDate.getTime() - currentDate.getTime()
 
       if (timeDifference > 0) {
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
@@ -53,17 +57,14 @@ export class CountdownComponent {
       }
     }
   }
+
   onDateChange(event: any) {
     this.selectedDate = new Date(event.target.value)
+    this.updateCountdown()
+  }
 
-    if (this.selectedDate.getTime() === this.currentDate.getTime()) {
-      this.timerText = 'Today is the day!'
-      this.stopCountdownTimer()
-    } else if (this.selectedDate.getTime() < this.currentDate.getTime()) {
-      this.timerText = 'Your date has already come and gone! Please select a new date.'
-      this.stopCountdownTimer()
-    } else {
-      this.updateCountdown()
-    }
+  onTitleChange(event: any) {
+    this.titleText = event.target.value
+    this.localStorageService.setTitle(this.titleText)
   }
 }

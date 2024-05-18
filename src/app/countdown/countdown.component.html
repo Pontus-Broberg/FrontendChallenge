@@ -7,7 +7,7 @@
 <div class="countdown-form">
   <mat-form-field class="countdown-form-field" appearance="outline">
     <mat-label>Title</mat-label>
-    <input matInput type="text" [(ngModel)]="titleText" >
+     <input matInput type="text" [(ngModel)]="titleText" (change)="onTitleChange($event)" >
   </mat-form-field>
   <mat-form-field class="countdown-form-field" appearance="outline">
     <mat-label>Date</mat-label>
