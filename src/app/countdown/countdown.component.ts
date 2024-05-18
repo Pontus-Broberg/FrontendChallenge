@@ -12,15 +12,16 @@ import { LocalStorageService } from '../local-storage.service'
   styleUrl: './countdown.component.scss',
 })
 export class CountdownComponent implements OnInit {
-  titleText: string = 'Welcome to the countdown app!'
-  timerText: string = 'Please select a time to start the countdown.'
-  selectedDate: Date | null = null
+  titleText: string = ''
+  timerText: string = 'Please select a date to start the countdown.'
+  selectedDate: string = ''
   private timerSubscription: Subscription | undefined
 
   constructor(private localStorageService: LocalStorageService) {}
 
   ngOnInit() {
     this.titleText = this.localStorageService.getTitle() || ''
+    this.selectedDate = this.localStorageService.getDate() || ''
     this.startCountdownTimer()
   }
 
@@ -43,7 +44,8 @@ export class CountdownComponent implements OnInit {
   updateCountdown() {
     if (this.selectedDate) {
       const currentDate = new Date()
-      const timeDifference = this.selectedDate.getTime() - currentDate.getTime()
+      const inputDate = new Date(this.selectedDate)
+      const timeDifference = inputDate.getTime() - currentDate.getTime()
 
       if (timeDifference > 0) {
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
@@ -51,7 +53,9 @@ export class CountdownComponent implements OnInit {
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000)
 
-        this.timerText = `${days} days, ${hours}h, ${minutes}m, ${seconds}s`
+        const daysText = days === 1 ? 'day' : 'days'
+
+        this.timerText = `${days + daysText}, ${hours}h, ${minutes}m, ${seconds}s`
       } else {
         this.timerText = 'Times up! Your selected date has arrived!'
       }
@@ -59,7 +63,8 @@ export class CountdownComponent implements OnInit {
   }
 
   onDateChange(event: any) {
-    this.selectedDate = new Date(event.target.value)
+    this.selectedDate = event.target.value
+    this.localStorageService.setDate(this.selectedDate)
     this.updateCountdown()
   }
 
