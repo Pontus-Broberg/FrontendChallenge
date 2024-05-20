@@ -19,8 +19,9 @@ The application will automatically reload if you change any of the source files.
 2. Improve on the welcome message and page behaviour when no date or title is set.
 3. Improve timer calculate correct time based on time zone and current user location.
 4. Add validation to ensure that the end date is not in the past.
-5. Implement a feature to allow multiple countdown timers.
-6. Add tests to ensure the application works as expected. 
+5. Add date picker for a better user experience.
+6. Implement a feature to allow multiple countdown timers.
+7. Add tests to ensure the application works as expected. 
 
 ## Making the App Production Ready
 
