@@ -4,27 +4,30 @@
   @media (orientation: landscape) {
     flex-direction: row;
     gap: 5vw;
-    justify-content: space-between;
-    margin-top: 20vh;
+    justify-content: space-evenly;
+    
+    .countdown-form-field {
+      width: 40vw;
+    }
   }
-
+  
   @media (orientation: portrait) {
     flex-direction: column;
     gap: 5vw;
     margin-top: 10vh;
+    align-items: center;
+
+    .countdown-form-field {
+      width: 90vw;
+    }
   }
 }
 
-.countdown-form-field {
-  width: 100%;
-}
-
 .text-container {
-  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .time-text {
-  font-size: 50px;
   font-weight: 400;
   margin: 0;
   text-align: center;
@@ -32,14 +35,13 @@
 
 .title-text {
   color: #72035D;
-  font-size: 60px;
   font-weight: 800;
   margin: 0;
   text-align: center;
 }
 
 h1 {
-  line-height: 70px;
+  white-space: nowrap;
 }
 
 input {

@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { Subscription, interval } from 'rxjs'
 import { LocalStorageService } from '../local-storage.service'
+import { ScaleToWidthDirective } from '../scale-to-width.directive'
 
 @Component({
   selector: 'app-countdown',
   standalone: true,
-  imports: [FormsModule, MatInputModule],
+  imports: [ScaleToWidthDirective, FormsModule, MatInputModule],
   templateUrl: './countdown.component.html',
   styleUrl: './countdown.component.scss',
 })

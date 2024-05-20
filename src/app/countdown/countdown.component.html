@@ -1,8 +1,8 @@
 <div class="text-container">
-  <h1 class="title-text">Time to {{ titleText }} </h1>
+  <h1 [appScaleToWidth]="titleText" class="title-text">Time to {{ titleText }} </h1>
 </div>
 <div class="text-container">
-  <h1 class="time-text">{{ timerText }}</h1>
+  <h1 [appScaleToWidth]="timerText" class="time-text">{{ timerText }}</h1>
 </div>
 <div class="countdown-form">
   <mat-form-field class="countdown-form-field" appearance="outline">
