@@ -17,9 +17,10 @@ The application will automatically reload if you change any of the source files.
 
 1. Text resizing functoin is far from perfect as it today relies on some hard coded values. An alternative solution could be based on comparing the pixel length of the text and it's bounding wrapper and then resizing the font size using binary search to ensure good performance. 
 2. Improve on the welcome message and page behaviour when no date or title is set.
-3. Add validation to ensure that the end date is not in the past.
-4. Implement a feature to allow multiple countdown timers.
-5. Add tests to ensure the application works as expected. 
+3. Improve timer calculate correct time based on time zone and current user location.
+4. Add validation to ensure that the end date is not in the past.
+5. Implement a feature to allow multiple countdown timers.
+6. Add tests to ensure the application works as expected. 
 
 ## Making the App Production Ready
 
