@@ -1,4 +1,4 @@
-import { Directive, ElementRef, effect, input, Renderer2 } from '@angular/core'
+import { Directive, ElementRef, effect, input } from '@angular/core'
 
 @Directive({
   selector: '[appScaleToWidth]',

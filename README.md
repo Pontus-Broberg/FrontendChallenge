@@ -1,32 +1,37 @@
-# Description & requirements
+# Countdown App
 
-Your objective in this assignment is to create a countdown app built using this boilerplate (+ any other tools of your choice) that follows the design specifications provided [in this Figma file](https://www.figma.com/file/UPEugUz5jM9IzIkWft2Y9m/NC-challenge). The app should work in portrait as well as in landscape mode while the text displayed on the screen should always fill the whole width of the screen.
+This application is a countdown timer that allows users to set an end date and name an event. The countdown starts from the current time and displays the remaining time to the specified end date in the format: Days, Hours(h), Minutes(m), Seconds(s). The text displayed on the screen is designed to always fill the entire width of the screen, resizing as necessary. The event name and end date are persisted between page reloads.
 
-In your app, it should be possible to define the end date and the name of the event taking place on that day. The countdown should always start from the current time and it should display the time remaining to your specified end date in the following format: Days, Hours(h), Minutes(m), Seconds(s) *(e.g., 3 days, 15 h, 20 m, 5 s)*. To make sure the text always covers the entire screen width, it should resize whenever necessary to achieve this objective.
+Here is a link to the deployed app:
+[FrontendChallenge](https://pontus-broberg.github.io/FrontendChallenge/)
 
-The purpose of the solution is to “fit” the input text into an element in one line (no line breaks, filling the whole width) using the maximum possible font-size.
+## Installation and Running the App Locally
 
-Please make sure that your text fit solution is reusable and that the event name, as well as the specified end date, are persisted between page reloads.
+1. Install the necessary dependencies using `npm install`.
+2. Run the application using `ng serve`.
+3. Open your browser and navigate to `http://localhost:4200/`.
 
-**Once you feel ready to share your solution, please:**
+The application will automatically reload if you change any of the source files.
 
-- Commit the code to Github or your favorite VCS.
-- Write a simple README.md explaining how to set up the project (assuming it’s read by a developer who is experienced with all the used tools).
-- Include a URL to a deployed working Web page (use netlify.com or github.io or whatever simple hosting tool that works for you).
+## Suggestions for Improvement
 
-Please put the resulting project in a public github repository and provide a link to it. Please make it easy for us to test the result.
+1. Text resizing functoin is far from perfect as it today relies on some hard coded values. An alternative solution could be based on comparing the pixel length of the text and it's bounding wrapper and then resizing the font size using binary search to ensure good performance. 
+2. Improve on the welcome message and page behaviour when no date or title is set.
+3. Improve timer calculate correct time based on time zone and current user location.
+4. Add validation to ensure that the end date is not in the past.
+5. Add date picker for a better user experience.
+6. Implement a feature to allow multiple countdown timers.
+7. Add tests to ensure the application works as expected. 
 
-## Optional goals
+## Making the App Production Ready
 
-You’re free to complete this additional goal to get a higher score if you want!
+1. Implement a build process with minification for production-ready code.
+2. Set up Continuous Integration/Continuous Deployment (CI/CD) for automated testing and deployment.
+3. Ensure the application is fully responsive and works across all major browsers and devices.
+4. Implement error tracking and logging for easier debugging in production.
+5. Conduct performance testing and optimize as necessary for a smooth user experience.
 
-1. Write suggestions of how this solution can be improved. Describe what the next steps would be in order for this app to be production ready. 
-
-## Running the app
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. 
-
-## Further help
+## Further Help
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
 
